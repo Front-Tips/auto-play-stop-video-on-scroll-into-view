@@ -2,10 +2,7 @@ let userPlayed = false;
 const video = document.querySelector("video");
 
 // Set flag on manual play
-video.addEventListener(
-  "play",
-  () => (userPlayed = true)
-);
+video.addEventListener("play", () => (userPlayed = true));
 
 window.addEventListener("scroll", () => {
   if (userPlayed) {
@@ -14,11 +11,9 @@ window.addEventListener("scroll", () => {
     const halfwayVisibleTop =
       window.innerHeight - video.clientHeight / 2;
 
-    const isAboveBottom =
-      rect.top <= halfwayVisibleTop;
+    const isAboveBottom = rect.top <= halfwayVisibleTop;
 
-    const isBelowTop =
-      rect.top >= -video.clientHeight / 2;
+    const isBelowTop = rect.top >= -video.clientHeight / 2;
 
     // Check if video is in viewport
     const inView = isAboveBottom && isBelowTop;
@@ -27,3 +22,18 @@ window.addEventListener("scroll", () => {
     inView ? video.play() : video.pause();
   }
 });
+
+/* ------------------------ */
+/*   IntersectionObserver   */
+/* ------------------------ */
+/* let userPlayed = false;
+const video = document.querySelector("video");
+
+video.addEventListener("play", () => (userPlayed = true));
+
+new IntersectionObserver(
+  ([entry]) =>
+    userPlayed &&
+    (entry.isIntersecting ? video.play() : video.pause()),
+  { threshold: 0.5 }
+).observe(video); */
