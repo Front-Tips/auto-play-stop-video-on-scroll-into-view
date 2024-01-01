@@ -1,0 +1,36 @@
+:root {
+  --background-color: #e5e5e5;
+  --text-color: #000;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: system-ui, sans-serif;
+  font: 400 145%/1.5 Verdana, sans-serif;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  width: 800px;
+  margin: auto;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+p {
+  max-width: 30ch;
+}
+
+@media (max-width: 766px) {
+  body {
+    width: 100%;
+  }
+}
